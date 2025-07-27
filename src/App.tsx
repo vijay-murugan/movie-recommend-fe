@@ -1,31 +1,22 @@
-import React from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import './App.css'
 import { Login } from './components/login/index';
-import {Register} from './components/login/register';
+import { Register } from './components/login/register';
+import { Rate } from './components/ratingpage';
 import { useAuth } from './contexts/authcontext';
 import { doSignOut } from './firebase/auth';
+import { useEffect } from 'react';
 
 function Home() {
   const navigate = useNavigate();
   const auth = useAuth();
   const userLoggedIn = auth?.userLoggedIn;
-  const userEmail = auth?.userEmail;
-  const handleLogout = async () => {
-    await doSignOut();
-    navigate('/login');
-  };
 
-  if (userLoggedIn) {
-    return (
-      <div style={{ textAlign: 'center', marginTop: '4rem' }}>
-        <h2>Welcome{userEmail ? `, ${userEmail}` : ''}!</h2>
-        <button onClick={handleLogout} style={{ marginTop: '2rem' }}>
-          Logout
-        </button>
-      </div>
-    );
-  }
+   useEffect(() => {
+    if (userLoggedIn) {
+      navigate('/rate');
+    }
+  }, [userLoggedIn, navigate]);
    return (
     <div style={{ textAlign: 'center', marginTop: '4rem' }}>
       <button className="button" onClick={() => navigate('/login')}>Login</button>
@@ -42,6 +33,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/rate" element={<Rate />} />
     </Routes>
   );
 }
