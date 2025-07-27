@@ -1,0 +1,158 @@
+.left svg {
+  margin-bottom: 24px;
+  fill: #d90429;
+  opacity: 0.85;
+  width: 48px;
+  height: 48px;
+}
+
+.form-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;               /* items-center */
+  width: 100%;            
+  max-width: 600px; 
+  background: #fff;                  /* bg-white */
+  border-radius: 0.5rem;             /* rounded-lg */
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.12); /* shadow */
+  padding: 48px 36px 36px 48px;
+  margin: 2rem auto 0 auto; /* Center horizontally */
+  transition: background 0.2s;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  .form-area {
+    background: #1f2937;             /* dark:bg-gray-800 */
+  }
+}
+
+.form-area h1 {
+  margin-top: 1rem;   
+  margin-bottom: 1rem;           /* mb-3 */
+  font-size: 2rem;     
+            /* text-2xl */
+  font-weight: bold;             /* font-bold */
+  color: #181818;                /* text-gray-900 */
+  /* Responsive font size for large screens */
+  /* lg:text-3xl */
+  /* dark:text-white handled below */
+  letter-spacing: 2px;
+  text-align: center;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  transition: color 0.2s;
+}
+
+@media (min-width: 1024px) {
+  .form-area h1 {
+    font-size: 2.25rem;          /* lg:text-3xl */
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .form-area h1 {
+    color: #fff;   
+      max-width: 500px;                /* dark:text-white */
+  }
+}
+
+.form-area form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+
+.form-area input[type="email"],
+.form-area input[type="password"] {
+  background: #f9fafb;                /* bg-gray-50 */
+  border: 1px solid #d1d5db;          /* border-gray-300 */
+  color: #111827;                     /* text-gray-900 */
+  font-size: 0.875rem;                /* sm:text-sm */
+  border-radius: 0.5rem;              /* rounded-lg */
+  width: 350px;                        /* Increased width */
+  max-width: 100%;                     /* Responsive: don't overflow parent */
+  padding: 0.625rem;                  /* p-2.5 */
+  box-sizing: border-box;
+  transition: border 0.2s, box-shadow 0.2s;
+  margin-left: auto;                 /* Center horizontally */
+  margin-right: auto;
+}
+
+.form-area input[type="email"]::placeholder,
+.form-area input[type="password"]::placeholder {
+  color: #6b7280;                     /* placeholder:text-gray-400 */
+  opacity: 1;
+}
+
+.form-area input[type="email"]:focus,
+.form-area input[type="password"]:focus {
+  border-color: #3b82f6;              /* focus:border-blue-500 */
+  box-shadow: 0 0 0 2px #3b82f680;    /* focus:ring-blue-500 */
+  outline: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .form-area input[type="email"],
+  .form-area input[type="password"] {
+    background: #374151;              /* dark:bg-gray-700 */
+    border: 1px solid #4b5563;        /* dark:border-gray-600 */
+    color: #fff;                      /* dark:text-white */
+  }
+  .form-area input[type="email"]::placeholder,
+  .form-area input[type="password"]::placeholder {
+    color: #9ca3af;                   /* dark:placeholder:text-gray-400 */
+  }
+  .form-area input[type="email"]:focus,
+  .form-area input[type="password"]:focus {
+    border-color: #3b82f6;            /* dark:focus:border-blue-500 */
+    box-shadow: 0 0 0 2px #3b82f680;  /* dark:focus:ring-blue-500 */
+  }
+}
+
+
+.form-area button,
+.form-area button:not([type="submit"]) {
+  color: #fff;                    /* text-white */
+  font-weight: 500;               /* font-medium */
+  border-radius: 0.5rem;          /* rounded-lg */
+  font-size: 1rem;                /* text-base */
+  padding: 0.75rem 1.25rem;       /* px-5 py-3 */
+  width: 100%;                    /* w-full */
+  text-align: center;             /* text-center */
+  background: #1d4ed8;            /* bg-blue-700 */
+  border: none;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+
+.form-area button:hover {
+  background: #2563eb;            /* Slightly lighter blue on hover */
+}
+.form-area button[type="submit"]:hover {
+  background: #ffffff;
+  color: #1d4ed8;
+}
+
+.form-area button:not([type="submit"]):hover {
+  background: #ffffff;
+  color: #1d4ed8;
+  border: 1.5px solid #fff;
+}
+.form-area .error {
+  color: #1d4ed8;
+  text-align: center;
+  font-family: inherit;
+}
+
+.form-area a {
+  color: #1d4ed8;
+  text-decoration: underline;
+  font-family: inherit;
+  text-align: center;
+}
+
+.form-area a:hover {
+  color: #fff;
+}
