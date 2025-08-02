@@ -1,12 +1,10 @@
-import React, {useState} from "react";
+import {useState} from "react";
 import {Navigate, Link} from "react-router-dom";
 import { doSignInWithEmailAndPassword, doSignInWithGoogle } from "../../firebase/auth";
-import { useAuth } from "../../contexts/authcontext";
 import './login.css';
 
 export const Login = () => {
 
-    const { userLoggedIn } = useAuth();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isLoggedIn, setIsLoggedIn] = useState(false);

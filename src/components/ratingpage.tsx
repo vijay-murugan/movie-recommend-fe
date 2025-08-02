@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from '../contexts/authcontext';
 import { doSignOut } from '../firebase/auth';
@@ -36,12 +36,14 @@ export const Rate = () => {
 
   const handleSubmit = async () => {
     // Backend call
-    // await fetch("/api/submit-ratings", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify({ user_id: userId, ratings }),
-    // });
+    const response = await fetch("http://127.0.0.1:8000/recommend", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ user_id: userId, ratings }),
+  });
+    const result = await response.json();
     console.log("Ratings submitted:", { userId, ratings });
+    console.log("Backend result:", result);
     navigate("/thankyou");
   };
 
